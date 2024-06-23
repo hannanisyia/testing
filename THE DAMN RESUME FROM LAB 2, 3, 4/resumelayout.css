@@ -1,0 +1,148 @@
+body {
+  background-color: #C6DAF1;
+  margin: 0; /* Add margin: 0 to remove default body margin */
+}
+
+header {
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bolder;
+  color: #6F9CDE;
+  padding-top: 30px;
+  text-transform: uppercase;
+}
+
+nav {
+  margin: 0;
+  padding: 0;
+  background-color: #6F9CDE;
+  font-family: Arial;
+}
+
+nav ul {
+  list-style: none;
+  background-color: #6F9CDE;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+nav li {
+  display: inline-block;
+  /* Add padding for spacing between list items */
+  padding: 0 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #FFFFFF;
+  /* Remove fixed width, use flexbox for responsive layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 20px;
+  font-size: 15px;
+  font-weight: bolder;
+  text-align: center;
+}
+
+nav a:hover {
+  background: #3C81D1;
+}
+
+section header {
+  font-family: sans-serif;
+  color: #3C81D1;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+#Syila,
+#header2,
+#header3,
+#p {
+  font-family: sans-serif;
+  color: #000000;
+}
+
+#Syila {
+  font-weight: bold;
+  font-size: 18.72px;
+}
+
+#header3 {
+  font-weight: bold;
+}
+
+#socmed {
+  background-color: #6F9CDE;
+  padding-top: 10px;
+  text-align: center;
+}
+
+footer {
+  background-color: #6F9CDE;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+/* Add media query for tablet and mobile sizes */
+@media (max-width: 768px) {
+  nav a {
+    /* Adjust font size for smaller screens */
+    font-size: 12px;
+  }
+}
+
+/*THIS IS FLEX.HTML CSS*/
+* {
+  box-sizing:border-box; //The box-sizing property allows us to include the padding and border in an element's total width and height.
+  If you set box-sizing: border-box; on an element padding and border are included in the width and height.
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: grey;
+  //flex-wrap: wrap-reverse; //change the order of the content
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: auto;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+
+.img{
+  width: 500px;
+  height: 400px;
+  display: flex;
+  flex-wrap: nowrap;
+  object-fit: cover; // to adjust the propotion of the image as the original image.
+}
+
+/* Use a media query to add a break point at 800px: */
+@media screen and (max-width:800px) {
+  header, section, footer {
+    width: 100%;
+    padding: 0;
+  }
+
+  .img {
+    width:100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  header, section, footer {
+    width: 100%;
+    padding: 0;
+  }
+    .img  {
+    width: 100%;
+  }
+}

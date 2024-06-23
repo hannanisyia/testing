@@ -1,0 +1,199 @@
+<html>
+
+<head>
+  <title>My Online Resume</title>
+  <link rel="stylesheet" href="resumelayout.css" type="text/css">
+</head>
+
+<body>
+
+  <header>
+    <h1>My Online Resume</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="education.html">EDUCATION</a></li>
+      <li><a href="skill.html">SKILLS</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+      <li><a href="flex.html">FLEX LAYOUT</a></li>
+      <li><a href="htmlmedia.html">HTML MEDIA ELEMENTS</a></li>
+    </ul>
+  </nav>
+
+  <section id="header2">
+    <h2>Contact Me</h2>
+  </section>
+
+  <section id="contact-details">
+    <h3>Please add your contact details here.</h3>
+
+    <form name="contact">
+
+      <label for="fullname">Name:</label>
+      <input type="text" id="Fullname" name="fullname" placeholder="Your Full Name" required>
+
+      <br><label for="age">Age:</label>
+      <input type="number" id="Age" name="age" placeholder="Your Age" required>
+
+      <br>Date of Birth:
+      <input type="date" id="Date of Birth" name="dateOfBirth" required>
+
+      <br><label for="phone">Mobile Number:</label>
+      <input type="tel" id="Mobile Number" name="phone" placeholder="XXX-XXXXXXX" required>
+
+      <br><label for="country">Country:</label>
+      <select id="Country" name="country" required>
+        <option value="">Select a Country</option>
+        <option value="My">Malaysia</option>
+        <option value="ID">Indonesia</option>
+        <option value="SG">Singapore</option>
+        <option value="TH">Thailand</option>
+      </select>
+
+      <br>Gender:<input type="radio" name="sex" value="male" required /> Male
+      <input type="radio" name="sex" value="female" required /> Female
+
+      <br><label for="email">Email:</label>
+      <input type="email" id="Email" name="email" placeholder="Your Email" required>
+
+      <br><label for="website">Personal / Company Website:</label>
+      <input type="url" id="Website" name="website" placeholder="Enter your URL">
+
+      <br>Preferred method of contact:
+      <input type="checkbox" id="phoneCheckbox" name="contactMethod" value="phone" /> Phone
+      <input type="checkbox" id="emailCheckbox" name="contactMethod" value="email" /> Email
+
+      <br><label for="mesej">Your Message:</label>
+      <textarea id="Message" name="mesej" cols="20" rows="4" placeholder="Your Message" required></textarea>
+
+    </form>
+
+      <br><label for="bgcolor">Background Color:</label>
+      <select id="bgcolor" onchange="changeBackgroundColor()">
+        <option value="">Select Color</option>
+        <option value="lightblue">Light Blue</option>
+        <option value="lightgreen">Light Green</option>
+        <option value="lightyellow">Light Yellow</option>
+        <option value="pink">Pink</option>
+        <option value="purple">Purple</option>
+      </select>
+
+      <br><label for="navigatePage">Navigate to Page:</label>
+      <select id="navigatePage" onchange="navigateToSelectedPage()">
+        <option value="">Select Page</option>
+        <option value="index.html">Home</option>
+        <option value="education.html">Education</option>
+        <option value="skill.html">Skills</option>
+        <option value="contact.html">Contact</option>
+        <option value="flex.html">Flex</option>
+        <option value="htmlmedia.html">HTML Media</option>
+      </select>
+
+      <br><button type="submit" onclick="submitForm()">Submit</button>
+      <button type="button" onclick="clearForm()">Clear Form</button><br>
+
+      <input type="button" name="Process" value="Display Details" onclick="displayFormData()">
+      
+    <div id="formDataDisplay"></div>
+
+  </section>
+
+  <hr>
+
+  <section id="socmed">
+    <a href="https://www.instagram.com/myonlineresume?igsh=MTYxb3BmbzRmcTg0NA==">
+      <img src="Instagram.png" alt="My Instagram" /></a>
+
+    <a href="https://x.com/myonlinere92976?t=0-nfysIU1Thzx9ij9-hewQ&s=09">
+      <img src="Twitter.png" alt="My Twitter" /></a>
+
+    <a href="https://www.facebook.com/profile.php?id=100071773170804">
+      <img src="Facebook.png" alt="My Facebook" /></a>
+
+    <a href="https://youtube.com/@hannanisyia?si=8_OPcA03F6anLGK8">
+      <img src="Youtube.png" alt="My Youtube" /></a>
+  </section>
+
+  <footer>
+    <br>
+    <h4>Copyright@Syila|2024</h4>
+  </footer>
+
+  <script>
+    function changeBackgroundColor() {
+      const body = document.body;
+      const selectedColor = document.getElementById("bgcolor").value;
+      body.style.backgroundColor = selectedColor;
+    }
+
+    function navigateToSelectedPage() {
+      const selectedPage = document.getElementById("navigatePage").value;
+      if (selectedPage) {
+        window.location.href = selectedPage;
+      }
+    }
+
+    function clearForm() {
+      document.forms["contact"].reset();
+      document.getElementById("formDataDisplay").innerHTML = "";
+    }
+
+    function submitForm() {
+      alert("Form submitted!");
+    }
+
+//DISPLAY FORM DATA
+    function displayFormData() {
+      const form = document.forms["contact"];
+      const formDataDisplay = document.getElementById("formDataDisplay");
+      let formData = "<h3>Form Data:</h3>";
+      const currentDate = new Date().toISOString().slice(0, 10);
+      formData += "<p>Date: " + currentDate + "</p>";
+
+      // Other form fields
+      for (let i = 0; i < form.elements.length; i++) {
+        const element = form.elements[i];
+        if (element.type !== "button" && element.type !== "submit" && element.type !== "reset") {
+          if (element.type === "checkbox") {
+            formData += "<p><strong>" + element.id + ":</strong> " + (element.checked ? "Yes" : "No") + "</p>";
+          } else {
+            formData += "<p><strong>" + element.id + ":</strong> " + element.value + "</p>";
+          }
+        }
+      }
+
+      formDataDisplay.innerHTML = formData;
+    }
+
+
+      // Gender
+      const genderMale = form.querySelector('input[name="sex"][value="male"]');
+      const genderFemale = form.querySelector('input[name="sex"][value="female"]');
+      formData += "<p><strong>Gender:</strong> ";
+      if (genderMale.checked) {
+        formData += "Male";
+      } else if (genderFemale.checked) {
+        formData += "Female";
+      }
+      formData += "</p>";
+
+      // Preferred method of contact
+      formData += "<p><strong>Preferred method of contact:</strong> ";
+      const phoneCheckbox = document.getElementById("phoneCheckbox");
+      const emailCheckbox = document.getElementById("emailCheckbox");
+      if (phoneCheckbox.checked && emailCheckbox.checked) {
+        formData += "Phone, Email";
+      } else if (phoneCheckbox.checked) {
+        formData += "Phone";
+      } else if (emailCheckbox.checked) {
+        formData += "Email";
+      }
+      formData += "</p>";
+
+  </script>
+
+</body>
+
+</html>
